@@ -39,7 +39,7 @@ CREATE TABLE `professor` (
 
 LOCK TABLES `professor` WRITE;
 /*!40000 ALTER TABLE `professor` DISABLE KEYS */;
-INSERT INTO `professor` VALUES (1,'이유승','402호','심리학과'),(2,'구경륜','506호','경영학과'),(3,'안호환','807호','행정학과'),(4,'최영경','803호','사회학과'),(5,'안하영','603호','철학과');
+INSERT INTO `professor` VALUES (2011001,'이유승','402호','심리학과'),(2011002,'구경륜','506호','경영학과'),(2012001,'안호환','807호','행정학과'),(2012002,'최영경','803호','사회학과'),(2012003,'안하영','603호','철학과');
 /*!40000 ALTER TABLE `professor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-26 17:19:54
+-- Dump completed on 2019-04-30 16:37:51

@@ -38,7 +38,7 @@ CREATE TABLE `requirement` (
   `requirement_test` varchar(45) DEFAULT NULL,
   `requirement_certificate` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`requirement_num`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,6 +47,7 @@ CREATE TABLE `requirement` (
 
 LOCK TABLES `requirement` WRITE;
 /*!40000 ALTER TABLE `requirement` DISABLE KEYS */;
+INSERT INTO `requirement` VALUES (1,2019,'심리학과',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,2019,'경영학과',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,2019,'행정학과',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `requirement` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-26 17:19:53
+-- Dump completed on 2019-04-30 16:37:51

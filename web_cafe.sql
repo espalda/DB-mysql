@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `university` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `university`;
+CREATE DATABASE  IF NOT EXISTS `web` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `web`;
 -- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
 --
--- Host: localhost    Database: university
+-- Host: localhost    Database: web
 -- ------------------------------------------------------
 -- Server version	8.0.15
 
@@ -18,31 +18,30 @@ USE `university`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `student`
+-- Table structure for table `cafe`
 --
 
-DROP TABLE IF EXISTS `student`;
+DROP TABLE IF EXISTS `cafe`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `student` (
-  `student_num` int(11) NOT NULL AUTO_INCREMENT,
-  `student_name` varchar(45) DEFAULT NULL,
-  `student_age` int(11) DEFAULT NULL,
-  `student_grade` int(11) DEFAULT NULL,
-  `student_semester` varchar(45) DEFAULT NULL,
-  `student_major` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`student_num`)
-) ENGINE=InnoDB AUTO_INCREMENT=2019333334 DEFAULT CHARSET=utf8;
+CREATE TABLE `cafe` (
+  `cafe_name` varchar(45) NOT NULL,
+  `cafe_grade` varchar(45) DEFAULT NULL,
+  `cafe_total` int(11) NOT NULL DEFAULT '0',
+  `cafe_detail` longtext,
+  `cafe_categorize` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`cafe_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `student`
+-- Dumping data for table `cafe`
 --
 
-LOCK TABLES `student` WRITE;
-/*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (2018001,'남남희',21,2,'1','패션학과'),(2019001,'박정훈',20,1,'1','심리학과'),(2019002,'윤서하',20,1,'1','경영학과'),(2019003,'변연홍',20,1,'1','행정학과'),(2019004,'전강희',20,1,'1','사회학과'),(2019005,'이이웅',21,1,'1','철학과'),(2019006,'이강준',20,1,'1','컴퓨터공학과'),(2019007,'이정만',20,1,'1','전기공학과');
-/*!40000 ALTER TABLE `student` ENABLE KEYS */;
+LOCK TABLES `cafe` WRITE;
+/*!40000 ALTER TABLE `cafe` DISABLE KEYS */;
+INSERT INTO `cafe` VALUES ('낚시의신','열매',3,'2001-03-22','게임'),('동물의숲','가지',2,'2001-08-11','게임'),('동양사진관','씨앗',1,'2000-05-30','예술'),('사진동호회','나무',2,'2003-04-21','예술'),('음악공장','가지',3,'2002-01-04','음악'),('자유여행','잎새',1,'2001-09-30','여행'),('직장인밴드','새싹',1,'2002-01-03','음악'),('프리다이빙','잎새',2,'2002-01-03','스포츠');
+/*!40000 ALTER TABLE `cafe` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-30 16:37:51
+-- Dump completed on 2019-04-30 16:39:05

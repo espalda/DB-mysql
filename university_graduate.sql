@@ -36,7 +36,7 @@ CREATE TABLE `graduate` (
   PRIMARY KEY (`graduate_num`),
   KEY `graduate_requirement_num_idx` (`graduate_requirement_num`),
   CONSTRAINT `graduate_requirement_num` FOREIGN KEY (`graduate_requirement_num`) REFERENCES `requirement` (`requirement_num`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,6 +45,7 @@ CREATE TABLE `graduate` (
 
 LOCK TABLES `graduate` WRITE;
 /*!40000 ALTER TABLE `graduate` DISABLE KEYS */;
+INSERT INTO `graduate` VALUES (1,1,'o','o','x','o','o','o'),(2,2,'o','o','x','o','x','o'),(3,3,'o','x','x','o','x','o');
 /*!40000 ALTER TABLE `graduate` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-26 17:19:54
+-- Dump completed on 2019-04-30 16:37:51

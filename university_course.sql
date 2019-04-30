@@ -28,8 +28,8 @@ CREATE TABLE `course` (
   `course_num` int(11) NOT NULL AUTO_INCREMENT,
   `course_student_num` int(11) DEFAULT NULL,
   `course_class_num` int(11) DEFAULT NULL,
-  `course_mid` varchar(45) DEFAULT NULL,
-  `course_end` varchar(45) DEFAULT NULL,
+  `course_mid` double DEFAULT NULL,
+  `course_end` double DEFAULT NULL,
   `course_attendance` varchar(45) DEFAULT NULL,
   `course_report` varchar(45) DEFAULT NULL,
   `course_total` varchar(45) DEFAULT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE `course` (
   KEY `course_class_num_idx` (`course_class_num`),
   CONSTRAINT `course_class_num` FOREIGN KEY (`course_class_num`) REFERENCES `class` (`class_num`),
   CONSTRAINT `course_student_num` FOREIGN KEY (`course_student_num`) REFERENCES `student` (`student_num`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,6 +48,7 @@ CREATE TABLE `course` (
 
 LOCK TABLES `course` WRITE;
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
+INSERT INTO `course` VALUES (1,2019001,1,100,100,'100','100','100','0'),(2,2019001,4,100,80,'100','100','92','0'),(3,2019003,2,70,100,'80','90','85','0'),(4,2019004,2,100,0,'0','0','40','0'),(5,2019005,3,50,0,'0','0','20','0');
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-26 17:19:54
+-- Dump completed on 2019-04-30 16:37:51
