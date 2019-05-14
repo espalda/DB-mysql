@@ -20,3 +20,6 @@ end while;
 update member set member_total = total where member_id = in_member_id;
 end //
 delimiter ;
+
+call membertotalprice('grape');
+select * from member;
