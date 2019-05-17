@@ -42,7 +42,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('apple','apple##','apple@naver.com','송이정','사과','010-5897-4568','서울'),('banana','banana##','banana@naver.com','국가설','바나나','010-7631-4858','경기'),('grape','grape##','grape@naver.com','위다주','포도','010-7895-5511','서울'),('mango','mango##','mango@naver.com','임환원','망고','010-7863-2254','강원'),('melon','melon##','melon@naver.com','안도연','수박','010-3568-8584','충남'),('orange','orange##','orange@naver.com','전병수','오렌지','010-2377-9856','경기'),('paer','pear##','paer@naver.com','민미정','배','010-3218-5498','서울'),('peach','peach##','paech@naver.com','지누나','복숭아','010-9985-9716','강원'),('strawberry','strawberry##','strawberry@naver.com','고병배','딸기','010-5874-5586','경기'),('tangerine','tangerine##','tagerine@naver.com','이시찬','귤','010-3687-1465','충남');
+INSERT INTO `user` VALUES ('apple','apple##','apple@naver.com','송이정','사과','010-3566-1125',' 서울'),('banana','banana##','banana@naver.com','국가설','바나나','010-7631-4858','경기'),('grape','grape##','grape@naver.com','위다주','포도','010-7895-5511','서울'),('mango','mango##','mango@naver.com','임환원','망고','010-7863-2254','강원'),('melon','melon##','melon@naver.com','안도연','수박','010-3568-8584','충남'),('orange','orange##','orange@naver.com','전병수','오렌지','010-2377-9856','경기'),('paer','pear##','paer@naver.com','민미정','배','010-3218-5498','서울'),('peach','peach##','paech@naver.com','지누나','복숭아','010-9985-9716','강원'),('strawberry','strawberry##','strawberry@naver.com','고병배','딸기','010-5874-5586','경기'),('tangerine','tangerine##','tagerine@naver.com','이시찬','귤','010-3687-1465','충남');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-30 16:39:05
+-- Dump completed on 2019-05-17 17:10:18

@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `shop` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `shop`;
+CREATE DATABASE  IF NOT EXISTS `green` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `green`;
 -- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
 --
--- Host: localhost    Database: shop
+-- Host: localhost    Database: green
 -- ------------------------------------------------------
 -- Server version	8.0.15
 
@@ -18,33 +18,28 @@ USE `shop`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `basket`
+-- Table structure for table `class`
 --
 
-DROP TABLE IF EXISTS `basket`;
+DROP TABLE IF EXISTS `class`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `basket` (
-  `basket_no` int(11) NOT NULL,
-  `basket_item_name` varchar(100) DEFAULT NULL,
-  `basket_member_id` varchar(45) DEFAULT NULL,
-  `basket_count` int(11) DEFAULT NULL,
-  PRIMARY KEY (`basket_no`),
-  KEY `basket_item_name_idx` (`basket_item_name`),
-  KEY `basket_member_id_idx` (`basket_member_id`),
-  CONSTRAINT `basket_item_name` FOREIGN KEY (`basket_item_name`) REFERENCES `item` (`item_name`),
-  CONSTRAINT `basket_member_id` FOREIGN KEY (`basket_member_id`) REFERENCES `member` (`member_id`)
+CREATE TABLE `class` (
+  `no` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `total` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `basket`
+-- Dumping data for table `class`
 --
 
-LOCK TABLES `basket` WRITE;
-/*!40000 ALTER TABLE `basket` DISABLE KEYS */;
-INSERT INTO `basket` VALUES (1,'금전수','sugar',3),(2,'아메리칸블루','orange',1);
-/*!40000 ALTER TABLE `basket` ENABLE KEYS */;
+LOCK TABLES `class` WRITE;
+/*!40000 ALTER TABLE `class` DISABLE KEYS */;
+INSERT INTO `class` VALUES (1,'컴퓨터공학',3),(2,'산업디자인',0);
+/*!40000 ALTER TABLE `class` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-03 17:17:20
+-- Dump completed on 2019-05-17 17:10:20

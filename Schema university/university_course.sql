@@ -33,7 +33,7 @@ CREATE TABLE `course` (
   `course_attendance` varchar(45) DEFAULT NULL,
   `course_report` varchar(45) DEFAULT NULL,
   `course_total` varchar(45) DEFAULT NULL,
-  `course_rate` varchar(45) DEFAULT NULL,
+  `course_grade` varchar(2) NOT NULL DEFAULT 'F',
   PRIMARY KEY (`course_num`),
   KEY `course_student_num_idx` (`course_student_num`),
   KEY `course_class_num_idx` (`course_class_num`),
@@ -48,7 +48,7 @@ CREATE TABLE `course` (
 
 LOCK TABLES `course` WRITE;
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
-INSERT INTO `course` VALUES (1,2019001,1,100,100,'100','100','100','0'),(2,2019001,4,100,80,'100','100','92','0'),(3,2019003,2,70,100,'80','90','85','0'),(4,2019004,2,100,0,'0','0','40','0'),(5,2019005,3,50,0,'0','0','20','0');
+INSERT INTO `course` VALUES (1,2019001,1,40,40,'10','10','100','A+'),(2,2019002,4,40,20,'10','10','80','B'),(3,2019003,2,40,20,'10','10','80','B'),(4,2019004,2,20,20,'10','10','60','D'),(5,2019005,3,30,30,'20','10','90','A');
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -61,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-30 16:37:51
+-- Dump completed on 2019-05-17 17:10:19

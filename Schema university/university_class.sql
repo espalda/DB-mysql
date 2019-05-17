@@ -37,7 +37,7 @@ CREATE TABLE `class` (
   KEY `class_subject_code_idx` (`class_subject_code`),
   CONSTRAINT `class_professor_num` FOREIGN KEY (`class_professor_num`) REFERENCES `professor` (`professor_num`),
   CONSTRAINT `class_subject_code` FOREIGN KEY (`class_subject_code`) REFERENCES `subject` (`subject_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,7 @@ CREATE TABLE `class` (
 
 LOCK TABLES `class` WRITE;
 /*!40000 ALTER TABLE `class` DISABLE KEYS */;
-INSERT INTO `class` VALUES (1,100,2011001,'802호','월1,2,3',2019,1),(2,200,2011002,'806호','월수3,4,5',2019,1),(3,300,2012001,'702호','화목1,2',2019,1),(4,400,2012002,'402호','금5',2019,1),(5,500,2012003,'506호','수3',2019,1);
+INSERT INTO `class` VALUES (1,100,2011001,'802호','월 5',2019,1),(2,200,2011002,'806호','월 4',2019,1),(3,300,2012001,'702호','화 2',2019,1),(4,400,2012002,'402호','금 5',2019,1),(5,500,2012003,'506호','수 3',2019,1),(6,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `class` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-30 16:37:52
+-- Dump completed on 2019-05-17 17:10:20

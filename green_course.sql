@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `shop` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `shop`;
+CREATE DATABASE  IF NOT EXISTS `green` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `green`;
 -- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
 --
--- Host: localhost    Database: shop
+-- Host: localhost    Database: green
 -- ------------------------------------------------------
 -- Server version	8.0.15
 
@@ -18,33 +18,31 @@ USE `shop`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `board`
+-- Table structure for table `course`
 --
 
-DROP TABLE IF EXISTS `board`;
+DROP TABLE IF EXISTS `course`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `board` (
-  `board_no` int(11) NOT NULL AUTO_INCREMENT,
-  `board_member_id` varchar(45) DEFAULT NULL,
-  `board_category` varchar(45) DEFAULT NULL,
-  `board_title` varchar(45) DEFAULT NULL,
-  `board_contents` longtext,
-  `board_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`board_no`),
-  KEY `board_member_id_idx` (`board_member_id`),
-  CONSTRAINT `board_member_id` FOREIGN KEY (`board_member_id`) REFERENCES `member` (`member_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+CREATE TABLE `course` (
+  `no` int(11) NOT NULL,
+  `class_no` int(11) NOT NULL,
+  `student_no` int(11) NOT NULL,
+  `giveup` varchar(1) NOT NULL DEFAULT 'n',
+  PRIMARY KEY (`no`),
+  KEY `class_no_idx` (`class_no`),
+  CONSTRAINT `class_no` FOREIGN KEY (`class_no`) REFERENCES `class` (`no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `board`
+-- Dumping data for table `course`
 --
 
-LOCK TABLES `board` WRITE;
-/*!40000 ALTER TABLE `board` DISABLE KEYS */;
-INSERT INTO `board` VALUES (1,'apple','문의',NULL,NULL,'2019-05-16 09:38:11'),(2,'orange','문의',NULL,NULL,'2019-05-16 09:38:11'),(3,'candy','건의',NULL,NULL,'2019-05-16 09:38:11'),(4,'orange','문의',NULL,NULL,'2019-05-16 09:38:11'),(5,'orange','교환',NULL,NULL,'2019-05-16 09:38:11'),(6,'orange','문의',NULL,NULL,'2019-05-16 09:38:11'),(7,'apple','문의',NULL,NULL,'2019-05-16 09:38:11');
-/*!40000 ALTER TABLE `board` ENABLE KEYS */;
+LOCK TABLES `course` WRITE;
+/*!40000 ALTER TABLE `course` DISABLE KEYS */;
+INSERT INTO `course` VALUES (1,1,2019001,'n'),(2,1,2019002,'n'),(3,1,2019003,'n'),(4,2,2019004,'y');
+/*!40000 ALTER TABLE `course` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -55,15 +53,43 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `member_br` AFTER INSERT ON `board` FOR EACH ROW BEGIN
-declare b_count int default 0;
-set b_count = (select count(*) from board where new.board_member_id = board_member_id);
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `input_course` AFTER INSERT ON `course` FOR EACH ROW BEGIN declare _total int default 0;
+set _total = (select count(*) from course where new.class_no = class_no);
+update class set total = _total where no = new.class_no; END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `update_course` AFTER UPDATE ON `course` FOR EACH ROW BEGIN
 
-update member
+/* giveup 이 n 였다가 y 로 바뀌는 경우 수강생 인원수 감소 */
+if old.giveup = 'n' and new.giveup = 'y' then
+update class
 set
-member_board = b_count
+	total = total-1
 where
-new.board_member_id = member_id;
+	no = new.class_no;
+end if;
+    
+ /* 수강포기 y 상태에서 n 로 바뀌는 경우 */
+ if old.giveup = 'y' and new.giveup = 'n' then
+    update class
+set
+	total = total+1
+where
+	no = new.class_no;
+end if;
+    
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -79,23 +105,17 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `br_count` AFTER INSERT ON `board` FOR EACH ROW BEGIN 
-declare br_cnt int default 0;  /* 게시판 전체 글수*/
-declare m_bcount int default 0;  /*각멤버당 작성글*/
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `delete_course` AFTER DELETE ON `course` FOR EACH ROW begin
 
-set br_cnt = (select count(*) from board);
-set m_bcount = (select count(*) from board where new.board_member_id = board_member_id);
-
-update member
-set member_board = m_bcount
+if old.giveup = 'n' then
+update class
+set
+total = total - 1
 where
-	new.board_member_id = member_id;
+	old.class_no = no;
+end if;
 
-update seller 
-set seller_board = br_cnt
-where 
-	seller_num = '889-23-15982'; 
-END */;;
+end */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -111,4 +131,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-17 17:10:16
+-- Dump completed on 2019-05-17 17:10:20

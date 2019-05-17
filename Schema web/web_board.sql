@@ -32,6 +32,7 @@ CREATE TABLE `board` (
   `board_category_code` varchar(6) DEFAULT NULL,
   `board_registered_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `board_cafe_name` varchar(45) NOT NULL DEFAULT '0',
+  `board_like_count` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`board_no`),
   KEY `board_categorize_idx` (`board_category_code`),
   KEY `board_cafe_name_idx` (`board_cafe_name`),
@@ -46,7 +47,7 @@ CREATE TABLE `board` (
 
 LOCK TABLES `board` WRITE;
 /*!40000 ALTER TABLE `board` DISABLE KEYS */;
-INSERT INTO `board` VALUES (1,'',NULL,'apple','adm001','2019-01-02 00:00:00','낚시의신'),(2,'',NULL,'mango','adm001','2019-01-03 00:00:00','낚시의신'),(3,'',NULL,'apple','adm002','2019-04-05 00:00:00','동물의숲'),(4,'',NULL,'banana','adm003','2019-04-12 00:00:00','사진동호회'),(5,'',NULL,'orange','adm003','2019-04-11 00:00:00','사진동호회'),(6,'',NULL,'melon','adm004','2019-04-01 00:00:00','음악공장'),(7,'',NULL,'grape','adm004','2019-04-01 00:00:00','음악공장'),(8,'',NULL,'mango','adm005','2019-04-01 00:00:00','직장인밴드'),(9,'',NULL,'apple','adm006','2019-04-01 00:00:00','동양사진관'),(10,'',NULL,'apple','adm006','2019-04-01 00:00:00','동양사진관');
+INSERT INTO `board` VALUES (1,NULL,NULL,'apple','adm001','2019-01-02 00:00:00','낚시의신',0),(2,NULL,NULL,'mango','adm001','2019-01-03 00:00:00','낚시의신',0),(3,NULL,NULL,'apple','adm002','2019-04-05 00:00:00','동물의숲',0),(4,NULL,NULL,'banana','adm003','2019-04-12 00:00:00','사진동호회',0),(5,NULL,NULL,'orange','adm003','2019-04-11 00:00:00','사진동호회',0),(6,NULL,NULL,'melon','adm004','2019-04-01 00:00:00','음악공장',0),(7,NULL,NULL,'grape','adm004','2019-04-01 00:00:00','음악공장',0),(8,NULL,NULL,'mango','adm005','2019-04-01 00:00:00','직장인밴드',0),(9,NULL,NULL,'apple','adm006','2019-04-01 00:00:00','동양사진관',0),(10,NULL,NULL,'apple','adm006','2019-04-01 00:00:00','동양사진관',0);
 /*!40000 ALTER TABLE `board` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-30 16:39:06
+-- Dump completed on 2019-05-17 17:10:18

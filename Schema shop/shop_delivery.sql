@@ -38,7 +38,7 @@ CREATE TABLE `delivery` (
   KEY `delivery_member_id_idx` (`delivery_member_id`),
   CONSTRAINT `delivery_item_name` FOREIGN KEY (`delivery_item_name`) REFERENCES `item` (`item_name`),
   CONSTRAINT `delivery_member_id` FOREIGN KEY (`delivery_member_id`) REFERENCES `member` (`member_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `delivery` (
 
 LOCK TABLES `delivery` WRITE;
 /*!40000 ALTER TABLE `delivery` DISABLE KEYS */;
-INSERT INTO `delivery` VALUES (1,'산세베리아','apple','김은비','충남 천안시 어쩌구','010-9936-0145','apple@gmail.com','경비실에 맡겨주세요'),(2,'산세베리아','grape','김정화','충북 제천시 어쩌구','010-1587-3125','grage@gmail.com','문앞에 놔주세요'),(3,'극락조','grape','김정화','충북 제천시 어쩌구','010-1587-3125','grage@gmail.com','문앞에 놔주세요'),(4,'뱅갈고무나무','orange','지화자','서울 영등포 어쩌구','010-1254-7789','orange@naver.com','선물입니다'),(5,'산세베리아','melon','정정희','경기도 수원시 어쩌구','010-7798-2385','melon@naver.com',NULL);
+INSERT INTO `delivery` VALUES (1,'산세베리아','apple','김은비',NULL,'010-9936-0145','apple@gmail.com',NULL),(2,'산세베리아','grape','김정화',NULL,'010-1587-3125','grage@gmail.com',NULL),(3,'극락조','grape','김정화',NULL,'010-1587-3125','grage@gmail.com',NULL),(4,'뱅갈고무나무','orange','지화자',NULL,'010-1254-7789','orange@naver.com',NULL),(5,'산세베리아','melon','정정희',NULL,'010-7798-2385','melon@naver.com',NULL);
 /*!40000 ALTER TABLE `delivery` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-03 17:17:20
+-- Dump completed on 2019-05-17 17:10:16

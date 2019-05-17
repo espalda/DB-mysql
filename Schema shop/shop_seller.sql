@@ -29,6 +29,9 @@ CREATE TABLE `seller` (
   `seller_name` varchar(45) NOT NULL,
   `seller_address` varchar(45) NOT NULL,
   `seller_email` varchar(45) NOT NULL,
+  `total_member` int(11) DEFAULT NULL,
+  `total_board` int(11) DEFAULT NULL,
+  `best_seller` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`seller_num`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -39,7 +42,7 @@ CREATE TABLE `seller` (
 
 LOCK TABLES `seller` WRITE;
 /*!40000 ALTER TABLE `seller` DISABLE KEYS */;
-INSERT INTO `seller` VALUES ('889-23-15982','이로운','서울 서초구','good@naver.com');
+INSERT INTO `seller` VALUES ('889-23-15982','이로운','서울 서초구','good@naver.com',8,7,NULL);
 /*!40000 ALTER TABLE `seller` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-03 17:17:20
+-- Dump completed on 2019-05-17 17:10:17

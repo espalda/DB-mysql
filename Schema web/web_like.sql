@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `university` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `university`;
+CREATE DATABASE  IF NOT EXISTS `web` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `web`;
 -- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
 --
--- Host: localhost    Database: university
+-- Host: localhost    Database: web
 -- ------------------------------------------------------
 -- Server version	8.0.15
 
@@ -18,30 +18,33 @@ USE `university`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `subject`
+-- Table structure for table `like`
 --
 
-DROP TABLE IF EXISTS `subject`;
+DROP TABLE IF EXISTS `like`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `subject` (
-  `subject_code` int(11) NOT NULL AUTO_INCREMENT,
-  `subject_title` varchar(45) DEFAULT NULL,
-  `subject_point` int(11) DEFAULT NULL,
-  `subject_time` int(11) DEFAULT NULL,
-  `subject_type` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`subject_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=345679 DEFAULT CHARSET=utf8;
+CREATE TABLE `like` (
+  `like_no` int(11) NOT NULL AUTO_INCREMENT,
+  `like_board_no` int(11) NOT NULL DEFAULT '0',
+  `like_user_id` varchar(45) DEFAULT NULL,
+  `like_ok` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`like_no`),
+  KEY `like_board_no_idx` (`like_board_no`),
+  KEY `like_user_id_idx` (`like_user_id`),
+  CONSTRAINT `like_board_no` FOREIGN KEY (`like_board_no`) REFERENCES `board` (`board_no`),
+  CONSTRAINT `like_user_id` FOREIGN KEY (`like_user_id`) REFERENCES `user` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `subject`
+-- Dumping data for table `like`
 --
 
-LOCK TABLES `subject` WRITE;
-/*!40000 ALTER TABLE `subject` DISABLE KEYS */;
-INSERT INTO `subject` VALUES (100,'인간심리',3,4,'전필'),(200,'범죄심리',3,4,'전선'),(300,'재무회계',3,4,'전필'),(400,'재무관리',3,4,'전필'),(500,'행정기초',3,4,'전필'),(600,'행정중급',3,4,'전필');
-/*!40000 ALTER TABLE `subject` ENABLE KEYS */;
+LOCK TABLES `like` WRITE;
+/*!40000 ALTER TABLE `like` DISABLE KEYS */;
+INSERT INTO `like` VALUES (1,1,'apple',1),(2,2,'apple',0),(3,3,'apple',0);
+/*!40000 ALTER TABLE `like` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-17 17:10:20
+-- Dump completed on 2019-05-17 17:10:18

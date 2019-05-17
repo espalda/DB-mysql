@@ -32,7 +32,7 @@ CREATE TABLE `student` (
   `student_semester` varchar(45) DEFAULT NULL,
   `student_major` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`student_num`)
-) ENGINE=InnoDB AUTO_INCREMENT=2019333334 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2019333335 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,9 +41,37 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (2018001,'남남희',21,2,'1','패션학과'),(2019001,'박정훈',20,1,'1','심리학과'),(2019002,'윤서하',20,1,'1','경영학과'),(2019003,'변연홍',20,1,'1','행정학과'),(2019004,'전강희',20,1,'1','사회학과'),(2019005,'이이웅',21,1,'1','철학과'),(2019006,'이강준',20,1,'1','컴퓨터공학과'),(2019007,'이정만',20,1,'1','전기공학과');
+INSERT INTO `student` VALUES (2019001,'박정훈',20,1,'1','심리학과'),(2019002,'윤서하',20,1,'1','심리학과'),(2019003,'변연홍',20,1,'1','경영학과'),(2019004,'전강희',20,1,'1','경영학과'),(2019005,'이이웅',22,1,'1','행정학과'),(2019006,'김김이',20,1,'1','행정학과'),(2019007,'선옥남',20,1,'1','행정학과');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `graduation_st` AFTER INSERT ON `student` FOR EACH ROW begin
+declare r_num int;
+declare r_year int;
+	set r_year = new.student_num / 1000;
+	if new.student_major is not null then
+	set r_num = (select requirement_num from requirement where
+		new.student_major = requirement_major and requirement_entrance_num = r_year);
+ end if;
+ 
+ 
+insert graduation(graduation_student_num, graduation_requirement_num)
+values (new.student_num, r_num);
+
+end */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -54,4 +82,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-30 16:37:51
+-- Dump completed on 2019-05-17 17:10:19

@@ -28,10 +28,7 @@ CREATE TABLE `requirement` (
   `requirement_num` int(11) NOT NULL AUTO_INCREMENT,
   `requirement_entrance_num` int(11) DEFAULT NULL,
   `requirement_major` varchar(45) DEFAULT NULL,
-  `requirement_degree` varchar(45) DEFAULT NULL,
   `requirement_total` varchar(45) DEFAULT NULL,
-  `requirement_major_point` varchar(45) DEFAULT NULL,
-  `requirement_general_point` int(11) DEFAULT NULL,
   `requirement_english` int(11) DEFAULT NULL,
   `requirement_project` varchar(45) DEFAULT NULL,
   `requirement_paper` varchar(45) DEFAULT NULL,
@@ -47,7 +44,7 @@ CREATE TABLE `requirement` (
 
 LOCK TABLES `requirement` WRITE;
 /*!40000 ALTER TABLE `requirement` DISABLE KEYS */;
-INSERT INTO `requirement` VALUES (1,2019,'심리학과',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,2019,'경영학과',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,2019,'행정학과',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `requirement` VALUES (1,2019,'심리학과','140',600,'o','o','o','o'),(2,2019,'경영학과','140',700,'o','o','x','x'),(3,2019,'행정학과','140',700,'o','o','x','x');
 /*!40000 ALTER TABLE `requirement` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-30 16:37:51
+-- Dump completed on 2019-05-17 17:10:19
