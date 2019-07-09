@@ -18,34 +18,34 @@ USE `university`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `requirement`
+-- Table structure for table `board`
 --
 
-DROP TABLE IF EXISTS `requirement`;
+DROP TABLE IF EXISTS `board`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `requirement` (
-  `requirement_num` int(11) NOT NULL AUTO_INCREMENT,
-  `requirement_entrance_num` int(11) DEFAULT NULL,
-  `requirement_major` varchar(45) DEFAULT NULL,
-  `requirement_total` varchar(45) DEFAULT NULL,
-  `requirement_english` int(11) DEFAULT NULL,
-  `requirement_project` varchar(45) DEFAULT NULL,
-  `requirement_paper` varchar(45) DEFAULT NULL,
-  `requirement_test` varchar(45) DEFAULT NULL,
-  `requirement_certificate` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`requirement_num`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+CREATE TABLE `board` (
+  `num` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `contents` longtext NOT NULL,
+  `writer` varchar(15) NOT NULL,
+  `registered` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `file` varchar(255) DEFAULT NULL,
+  `views` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`num`),
+  KEY `writer_idx` (`writer`),
+  CONSTRAINT `writer` FOREIGN KEY (`writer`) REFERENCES `member` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `requirement`
+-- Dumping data for table `board`
 --
 
-LOCK TABLES `requirement` WRITE;
-/*!40000 ALTER TABLE `requirement` DISABLE KEYS */;
-INSERT INTO `requirement` VALUES (1,2019,'심리학과','140',600,'o','o','o','o'),(2,2019,'경영학과','140',700,'o','o','x','x'),(3,2019,'행정학과','140',700,'o','o','x','x');
-/*!40000 ALTER TABLE `requirement` ENABLE KEYS */;
+LOCK TABLES `board` WRITE;
+/*!40000 ALTER TABLE `board` DISABLE KEYS */;
+INSERT INTO `board` VALUES (1,'공지','공지','adorable','2019-07-08 13:41:59',NULL,0),(2,'상품','상품','adorable','2019-07-08 14:42:16',NULL,0);
+/*!40000 ALTER TABLE `board` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-09 18:24:54
+-- Dump completed on 2019-07-09 18:24:55

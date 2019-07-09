@@ -40,7 +40,7 @@ CREATE TABLE `subject` (
 
 LOCK TABLES `subject` WRITE;
 /*!40000 ALTER TABLE `subject` DISABLE KEYS */;
-INSERT INTO `subject` VALUES (100,'인간심리',3,4,'전필'),(200,'범죄심리',3,4,'전선'),(300,'재무회계',3,4,'전필'),(400,'재무관리',3,4,'전필'),(500,'행정기초',3,4,'전필'),(600,'행정중급',3,4,'전필');
+INSERT INTO `subject` VALUES (100,'아동심리',3,4,'전필'),(200,'범죄심리',3,4,'전선'),(300,'재무회계',3,4,'전필'),(400,'재무관리',3,4,'전필'),(500,'행정기초',3,4,'전필'),(600,'행정중급',3,4,'전필'),(700,'대학수학',3,4,'전필');
 /*!40000 ALTER TABLE `subject` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-17 17:10:20
+-- Dump completed on 2019-07-09 18:24:56

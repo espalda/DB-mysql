@@ -32,6 +32,8 @@ CREATE TABLE `class` (
   `class_schedule` varchar(45) DEFAULT NULL,
   `class_year` int(11) DEFAULT NULL,
   `class_semester` int(11) DEFAULT NULL,
+  `class_professor_name` varchar(45) DEFAULT NULL,
+  `class_subject_title` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`class_num`),
   KEY `class_professor_code_idx` (`class_professor_num`),
   KEY `class_subject_code_idx` (`class_subject_code`),
@@ -46,7 +48,7 @@ CREATE TABLE `class` (
 
 LOCK TABLES `class` WRITE;
 /*!40000 ALTER TABLE `class` DISABLE KEYS */;
-INSERT INTO `class` VALUES (1,100,2011001,'802호','월 5',2019,1),(2,200,2011002,'806호','월 4',2019,1),(3,300,2012001,'702호','화 2',2019,1),(4,400,2012002,'402호','금 5',2019,1),(5,500,2012003,'506호','수 3',2019,1),(6,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `class` VALUES (1,100,2011001,'802호','월 5',2019,1,NULL,NULL),(2,200,2011002,'806호','월 4',2019,1,NULL,NULL),(3,300,2012001,'702호','화 2',2019,1,NULL,NULL),(4,400,2012002,'402호','금 5',2019,1,NULL,NULL),(5,500,2012003,'506호','수 3',2019,1,NULL,NULL),(6,600,2012003,'507호','화6',2019,1,NULL,NULL);
 /*!40000 ALTER TABLE `class` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-17 17:10:20
+-- Dump completed on 2019-07-09 18:24:56
