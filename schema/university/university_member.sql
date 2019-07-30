@@ -29,7 +29,7 @@ CREATE TABLE `member` (
   `pw` varchar(250) NOT NULL,
   `gender` varchar(1) NOT NULL DEFAULT 'M',
   `email` varchar(45) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
+  `authority` varchar(45) NOT NULL DEFAULT 'user',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -40,7 +40,7 @@ CREATE TABLE `member` (
 
 LOCK TABLES `member` WRITE;
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
-INSERT INTO `member` VALUES ('adorable','00000000','M','adorable@naver.com','');
+INSERT INTO `member` VALUES ('orange1','$2a$10$HujWG4Qcia0.ATHKBXkXVurrCQgc.91H7ghePedZY/jjheAdEJBNi','F','espalda@naver.com','admin'),('orange2','$2a$10$gUbz2o2zAh9AAaAlCg5b/.EXETfLUAXseRgLOTV84NPZUPRxmo2eO','F','espalda@naver.com','user'),('orange3','$2a$10$ETgBgchbtCO47tDgmBZFaOo.LVlccO08OeCkWwWeUQc1Pe18LcgKW','M','espalda@naver.com','admin'),('orange4','$2a$10$wfb2m6cRBCeACgDa/8K0uuCSK6zFEUD8Jf2nU9QKaDxNszkhS49DK','M','espalda@naver.com','user');
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-09 18:24:55
+-- Dump completed on 2019-07-30 17:13:00
